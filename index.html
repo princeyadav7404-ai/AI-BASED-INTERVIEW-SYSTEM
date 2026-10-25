@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Interview Prep — AI-Based Interview Preparation System</title>
+<meta name="description" content="Prepare smarter, interview better — an AI-powered mock interview, feedback, and preparation platform.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+<body>
+
+<div id="toast-wrap"></div>
+
+<!-- ============ NAVBAR ============ -->
+<header id="navbar">
+  <div class="container nav-inner">
+    <div class="logo" data-view="home" role="button" tabindex="0" aria-label="AI Interview Prep home">
+      <img class="logo-img" src="assets/logo.png" alt="AI Interview Prep logo">
+      <div>
+        AI Interview Prep
+        <span class="logo-sub">Practice · Improve · Succeed</span>
+      </div>
+    </div>
+    <nav class="nav-links" id="nav-links">
+      <button data-view="home" class="active">Home</button>
+      <button data-view="practice">Practice</button>
+      <button data-view="mock-setup">Mock Interview</button>
+      <button data-view="questionbank">Question Bank</button>
+      <button data-view="dashboard">Performance</button>
+      <button data-view="resources">Resources</button>
+      <button data-view="about">About</button>
+    </nav>
+    <div class="nav-actions">
+      <span class="ai-badge" id="ai-badge" title="Checking AI connection…"><span class="dot"></span><span id="ai-badge-text">AI…</span></span>
+      <button class="btn btn-ghost btn-sm" id="btn-login" style="display:none">Hi, <span id="nav-username">User</span></button>
+      <button class="btn btn-ghost btn-sm" id="btn-login-open">Login</button>
+      <button class="btn btn-primary btn-sm" data-view="mock-setup">Start Interview</button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================================================ HOME ============================================================ -->
+<div class="view active" id="view-home">
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-badge"><span class="dot"></span> AI-Based Interview Preparation System</div>
+        <h1>Prepare Smarter. <span>Interview Better.</span></h1>
+        <p class="lead">An AI-powered interview preparation system that helps you practice, improve your answers, and build confidence before your real interview.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" data-view="mock-setup">Start Mock Interview</button>
+          <button class="btn btn-outline" data-anchor="features">Explore Features</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-card glass"><div class="stat-num" data-count="10000" data-suffix="+">0</div><div class="stat-label">Questions</div></div>
+          <div class="stat-card glass"><div class="stat-num" data-static="AI">AI</div><div class="stat-label">Powered Feedback</div></div>
+          <div class="stat-card glass"><div class="stat-num" data-count="6">0</div><div class="stat-label">Interview Categories</div></div>
+          <div class="stat-card glass"><div class="stat-num" data-static="1:1">1:1</div><div class="stat-label">Personalized Prep</div></div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="ai-panel glass">
+          <div class="ai-panel-head">
+            <div class="ai-avatar">🤖</div>
+            <div><strong>AI Interviewer</strong><small>● Live session</small></div>
+          </div>
+          <div class="chat-bubble">"Tell me about yourself and your background."</div>
+          <div class="chat-bubble me">"I'm a final-year CS student with a strong interest in machine learning and web development…"</div>
+          <div class="chat-bubble"><span class="typing-dots"><span></span><span></span><span></span></span> Analyzing your answer…</div>
+          <div class="mini-score-row">
+            <div class="mini-score"><b>85%</b><span>Communication</span></div>
+            <div class="mini-score"><b>90%</b><span>Relevance</span></div>
+            <div class="mini-score"><b>84</b><span>Overall</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Platform Features</span>
+        <h2>Everything you need to walk in ready</h2>
+        <p>A complete AI-driven preparation toolkit — from realistic mock interviews to personalized feedback and progress tracking.</p>
+      </div>
+      <div class="grid-3">
+        <div class="feature-card glass" data-view="mock-setup">
+          <div class="feature-icon">🎤</div>
+          <h3>AI Mock Interview</h3>
+          <p>Practice realistic interviews across HR, technical, behavioral and managerial rounds with an AI interviewer.</p>
+        </div>
+        <div class="feature-card glass" data-view="questionbank">
+          <div class="feature-icon">📚</div>
+          <h3>Smart Question Bank</h3>
+          <p>Search and filter 10,000+ curated questions by category and difficulty, and bookmark your favorites.</p>
+        </div>
+        <div class="feature-card glass" data-view="dashboard">
+          <div class="feature-icon">📊</div>
+          <h3>Performance Dashboard</h3>
+          <p>Track scores over time across communication, confidence, technical skill, relevance and grammar.</p>
+        </div>
+        <div class="feature-card glass" data-view="resume">
+          <div class="feature-icon">📄</div>
+          <h3>Resume-Based Prep</h3>
+          <p>Upload your resume and get interview questions personalized to your skills and projects.</p>
+        </div>
+        <div class="feature-card glass" data-view="generator">
+          <div class="feature-icon">✨</div>
+          <h3>AI Question Generator</h3>
+          <p>Generate custom questions for any role, industry, experience level and difficulty in seconds.</p>
+        </div>
+        <div class="feature-card glass" data-open-chat="1">
+          <div class="feature-icon">💬</div>
+          <h3>AI Chat Coach</h3>
+          <p>Get instant tips, explanations of the STAR method, and guided practice from your AI coach.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="glass" style="padding:44px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+        <div>
+          <h2 style="margin-bottom:8px;font-size:1.5rem;">Ready to see where you stand?</h2>
+          <p style="margin:0;">Start a free AI mock interview and get instant, actionable feedback.</p>
+        </div>
+        <button class="btn btn-primary" data-view="mock-setup">Start Mock Interview</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================ PRACTICE HUB ============================================================ -->
+<div class="view" id="view-practice">
+  <section class="page-hero">
+    <div class="container">
+      <div class="crumb">Practice</div>
+      <h1>Choose how you want to practice</h1>
+      <p>Pick a practice mode below — each one is powered by AI-simulated evaluation and feedback.</p>
+    </div>
+  </section>
+  <section class="section-tight">
+    <div class="container grid-4">
+      <div class="feature-card glass" data-view="mock-setup">
+        <div class="feature-icon">🎤</div>
+        <h3>Mock Interview</h3>
+        <p>Full simulated interview with timed questions and AI scoring.</p>
+      </div>
+      <div class="feature-card glass" data-view="questionbank">
+        <div class="feature-icon">📚</div>
+        <h3>Question Bank</h3>
+        <p>Practice individual questions by category and difficulty.</p>
+      </div>
+      <div class="feature-card glass" data-view="resume">
+        <div class="feature-icon">📄</div>
+        <h3>Practice From Resume</h3>
+        <p>Get questions generated from your own skills and experience.</p>
+      </div>
+      <div class="feature-card glass" data-view="generator">
+        <div class="feature-icon">✨</div>
+        <h3>AI Question Generator</h3>
+        <p>Generate a custom question set for any role or company.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================ MOCK INTERVIEW SETUP ============================================================ -->
+<div class="view" id="view-mock-setup">
+  <section class="page-hero">
+    <div class="container">
+      <div class="crumb">Practice / <b>Mock Interview</b></div>
+      <h1>Set up your AI mock interview</h1>
+      <p>Choose your interview type, difficulty and role — the AI will generate a tailored question set.</p>
+    </div>
+  </section>
+  <section class="section-tight">
+    <div class="container">
+      <div class="setup-card glass">
+        <div class="field">
+          <label>Interview Type</label>
+          <div class="option-grid" data-group="type">
+            <div class="option-pill" data-value="HR">HR Interview</div>
+            <div class="option-pill" data-value="Technical">Technical Interview</div>
+            <div class="option-pill" data-value="Behavioral">Behavioral Interview</div>
+            <div class="option-pill" data-value="Managerial">Managerial Interview</div>
+            <div class="option-pill" data-value="Campus Placement">Campus Placement</div>
+            <div class="option-pill" data-value="Internship">Internship Interview</div>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label>Difficulty</label>
+            <div class="option-grid" data-group="difficulty">
+              <div class="option-pill" data-value="Beginner">Beginner</div>
+              <div class="option-pill" data-value="Intermediate">Intermediate</div>
+              <div class="option-pill" data-value="Advanced">Advanced</div>
+            </div>
+          </div>
+          <div class="field">
+            <label>Experience Level</label>
+            <div class="option-grid" data-group="experience">
+              <div class="option-pill" data-value="Fresher">Fresher</div>
+              <div class="option-pill" data-value="0-2 Years">0–2 Years</div>
+              <div class="option-pill" data-value="3-5 Years">3–5 Years</div>
+              <div class="option-pill" data-value="5+ Years">5+ Years</div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label>Job Role</label>
+            <select id="setup-role"></select>
+          </div>
+          <div class="field">
+            <label>Target Company <span class="text-muted small">(optional — AI tailors questions to it)</span></label>
+            <input type="text" id="setup-company" maxlength="80" placeholder="e.g. TCS, Infosys, Amazon, a fintech startup">
+          </div>
+        </div>
+        <div class="setup-summary" id="setup-summary">
+          Select an interview type, difficulty, experience level and role to begin.
+        </div>
+        <div class="mt-20" style="display:flex;justify-content:flex-end;">
+          <button class="btn btn-primary" id="btn-start-interview" disabled>Start AI Interview</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================ LIVE INTERVIEW ============================================================ -->
+<div class="view" id="view-interview">
+  <section class="section-tight">
+    <div class="container interview-wrap">
+      <aside class="interview-side glass">
+        <div class="avatar-big">🤖<div class="pulse-ring live"></div></div>
+        <div class="text-center mb-0" style="margin-bottom:16px;">
+          <strong>AI Interviewer</strong><br><small class="text-muted">Session: <span id="side-type">HR</span> · <span id="side-diff">Beginner</span></small>
+        </div>
+        <div class="timer-box">
+          <div class="t" id="timer-display">01:00</div>
+          <div class="small text-muted">Time remaining</div>
+        </div>
+        <div class="q-progress-label"><span>Question <span id="q-current">1</span> of <span id="q-total">5</span></span><span id="q-percent">20%</span></div>
+        <div class="progress-track"><div class="progress-fill" id="q-progress-fill" style="width:20%"></div></div>
+      </aside>
+
+      <div class="interview-main glass">
+
+        <!-- Stage: Question / Answer -->
+        <div id="stage-question">
+          <div class="ai-question-card">
+            <div class="ai-avatar">🤖</div>
+            <div>
+              <h4>AI Interviewer</h4>
+              <p id="current-question">Tell me about yourself and your background.</p>
+            </div>
+          </div>
+
+          <div class="field mt-20">
+            <label>Your Answer</label>
+            <textarea id="answer-input" placeholder="Type your answer here, or use the microphone to speak…"></textarea>
+          </div>
+
+          <div class="answer-tools">
+            <button class="mic-btn" id="btn-mic" title="Start recording">🎙️</button>
+            <div id="rec-indicator" class="rec-indicator hidden"><span class="rec-dot"></span> Recording… tap mic to stop</div>
+          </div>
+
+          <div class="interview-actions">
+            <div class="left-actions">
+              <button class="btn btn-outline btn-sm" id="btn-skip">Skip Question</button>
+              <button class="btn btn-danger-outline btn-sm" data-view="mock-setup">End Interview</button>
+            </div>
+            <button class="btn btn-primary" id="btn-submit-answer">Submit Answer</button>
+          </div>
+        </div>
+
+        <!-- Stage: Analyzing -->
+        <div id="stage-analyzing" class="hidden">
+          <div class="analyzing-box">
+            <div class="ai-spinner"></div>
+            <h3>AI is analyzing your answer…</h3>
+            <p class="text-muted">Evaluating communication, relevance, confidence, technical knowledge and grammar.</p>
+          </div>
+        </div>
+
+        <!-- Stage: Analysis (scores) -->
+        <div id="stage-analysis" class="hidden">
+          <h3>AI Answer Analysis</h3>
+          <div class="overall-score-band">
+            <div>
+              <div class="small text-muted">Overall Score</div>
+              <div class="num" id="overall-score">84/100</div>
+            </div>
+            <div style="font-size:2.4rem;">📈</div>
+          </div>
+          <div class="score-grid" id="score-ring-grid"></div>
+          <div class="flex-between mt-20">
+            <span></span>
+            <button class="btn btn-primary" id="btn-see-feedback">See Detailed Feedback</button>
+          </div>
+        </div>
+
+        <!-- Stage: Feedback -->
+        <div id="stage-feedback" class="hidden">
+          <h3>AI Feedback</h3>
+          <div class="feedback-grid">
+            <div class="glass" style="padding:20px;">
+              <h4 class="text-cyan" style="font-size:.95rem;">What You Did Well</h4>
+              <ul class="feedback-list good" id="feedback-good"></ul>
+            </div>
+            <div class="glass" style="padding:20px;">
+              <h4 style="font-size:.95rem;color:var(--amber);">Areas to Improve</h4>
+              <ul class="feedback-list improve" id="feedback-improve"></ul>
+            </div>
+          </div>
+          <div class="suggestion-box">
+            <strong>💡 AI Suggestion:</strong>
+            <p class="mb-0" id="feedback-suggestion" style="margin-top:6px;">Try structuring your answer using the STAR method for more clarity.</p>
+          </div>
+          <div class="followup-box hidden" id="followup-box">
+            <strong>🎯 AI Follow-up Question:</strong>
+            <p class="mb-0" id="followup-text" style="margin-top:6px;"></p>
+            <button class="btn btn-outline btn-sm mt-10" id="btn-followup">Answer This Follow-up</button>
+          </div>
+          <div class="model-answer-wrap">
+            <button class="btn btn-outline btn-sm" id="btn-model-answer">✨ Show Me a Better Answer</button>
+            <div class="model-answer-box hidden" id="model-answer-box"></div>
+          </div>
+          <div class="interview-actions">
+            <button class="btn btn-outline" id="btn-retry-question">Try Answering This Question Again</button>
+            <button class="btn btn-primary" id="btn-next-question">Next Question →</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================ RESULT PAGE ============================================================ -->
+<div class="view" id="view-result">
+  <section class="section-tight">
+    <div class="container center-col">
+      <div class="result-hero">
+        <h1>Interview Completed 🎉</h1>
+        <p class="text-muted">Here's how you performed in this session.</p>
+        <div class="overall-score-band" style="margin-top:20px;">
+          <div><div class="small text-muted">Overall Performance</div><div class="num" id="result-overall">84/100</div></div>
+          <div style="font-size:2.4rem;">🏁</div>
+        </div>
+      </div>
+
+      <div class="glass pad-lg">
+        <h3>Skill Breakdown</h3>
+        <table class="result-table">
+          <thead><tr><th>Skill</th><th>Score</th></tr></thead>
+          <tbody id="result-table-body"></tbody>
+        </table>
+
+        <h3 class="mt-20">AI Performance Summary</h3>
+        <p id="result-summary">You communicated your ideas clearly and stayed relevant to most questions. Focus on structuring answers and reducing filler words to sound more confident.</p>
+
+        <h3 class="mt-20">Recommended Next Steps</h3>
+        <ul class="feedback-list good">
+          <li>Practice technical questions</li>
+          <li>Improve answer structure using the STAR method</li>
+          <li>Practice speaking clearly and at a steady pace</li>
+          <li>Complete another mock interview this week</li>
+        </ul>
+      </div>
+
+      <div class="result-actions">
+        <button class="btn btn-outline" data-view="mock-setup">Practice Again</button>
+        <button class="btn btn-outline" data-view="dashboard">View Detailed Report</button>
+        <button class="btn btn-primary" id="btn-download-report">Download Report</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================ QUESTION BANK ============================================================ -->
+<div class="view" id="view-questionbank">
+  <section class="page-hero">
+    <div class="container">
+      <div class="crumb">Practice / <b>Question Bank</b></div>
+      <h1>Question Bank</h1>
+      <p>Search and filter thousands of interview questions across every category.</p>
+    </div>
+  </section>
+  <section class="section-tight">
+    <div class="container">
+      <div class="qb-toolbar">
+        <div class="search-box"><input type="text" id="qb-search" placeholder="Search questions…"></div>
+      </div>
+      <div class="filter-chips mb-0" id="qb-category-chips" style="margin-bottom:12px;"></div>
+      <div class="filter-chips" id="qb-difficulty-chips" style="margin-bottom:26px;"></div>
+      <div class="qb-grid" id="qb-grid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================ DASHBOARD / PERFORMANCE ============================================================ -->
+<div class="view" id="view-dashboard">
+  <section class="page-hero">
+    <div class="container">
+      <div class="crumb">Your <b>Performance</b></div>
+      <h1>Personalized Dashboard</h1>
+      <p>Track your progress across every mock interview and question you've practiced.</p>
+    </div>
+  </section>
+  <section class="section-tight">
+    <div class="container">
+      <div class="dash-stats">
+        <div class="dash-stat glass"><div class="num" id="dash-interviews">0</div><div class="lbl">Interviews Completed</div></div>
+        <div class="dash-stat glass"><div class="num" id="dash-questions">0</div><div class="lbl">Questions Answered</div></div>
+        <div class="dash-stat glass"><div class="num" id="dash-avg">0</div><div class="lbl">Average Score</div></div>
+        <div class="dash-stat glass"><div class="num" id="dash-time">0m</div><div class="lbl">Practice Time</div></div>
+        <div class="dash-stat glass"><div class="num" id="dash-improve">0%</div><div class="lbl">Improvement</div></div>
+      </div>
+
+      <div class="dash-grid">
+        <div class="chart-card glass">
+          <h3>Performance Over Time</h3>
+          <svg id="perf-chart" viewBox="0 0 560 220" width="100%" height="220"></svg>
+          <div class="chart-legend" id="perf-legend"></div>
+          <div class="recommend-box" id="recommend-box">
+            Your communication score is improving. Practice behavioral questions to improve further.
+          </div>
+        </div>
+
+        <div class="readiness-card glass">
+          <h3>Interview Readiness</h3>
+          <div class="readiness-ring">
+            <svg viewBox="0 0 120 120" width="130" height="130">
+              <circle class="ring-bg" cx="60" cy="60" r="52" stroke-width="10"></circle>
+              <circle class="ring-fg" id="readiness-ring-fg" cx="60" cy="60" r="52" stroke-width="10" stroke="url(#gradReady)" transform="rotate(-90 60 60)"></circle>
+              <defs><linearGradient id="gradReady" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient></defs>
+            </svg>
+            <div class="ring-value" id="readiness-value" style="font-size:1.4rem;">72%</div>
+          </div>
+          <div class="weekly-goal-row">
+            <span class="small text-muted">Weekly Goal: <b id="wg-target" class="text-cyan">5 Interviews</b></span>
+            <span class="small" id="wg-progress">0 / 5</span>
+          </div>
+          <div class="progress-track mt-10"><div class="progress-fill" id="wg-fill" style="width:0%"></div></div>
+        </div>
+      </div>
+
+      <div class="chart-card glass mt-20" style="margin-bottom:22px;">
+        <h3>Achievements</h3>
+        <div class="badge-grid" id="badge-grid"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================ RESUME PREP ============================================================ -->
+<div class="view" id="view-resume">
+  <section class="page-hero">
+    <div class="container">
+      <div class="crumb">Practice / <b>Practice From My Resume</b></div>
+      <h1>Practice From My Resume</h1>
+      <p>Upload your resume and our AI will generate personalized interview questions based on your skills, projects and experience.</p>
+    </div>
+  </section>
+  <section class="section-tight">
+    <div class="container center-col">
+      <div class="glass pad-lg">
+        <div class="resume-drop" id="resume-drop">
+          <div class="ic">📄</div>
+          <p><strong>Click to upload</strong> or drag and drop your resume</p>
+          <p class="small text-muted mb-0">PDF or .txt · the AI reads your projects and skills (max 8 MB)</p>
+          <input type="file" id="resume-file" accept=".pdf,.txt" style="display:none">
+        </div>
+        <div id="resume-file-info"></div>
+
+        <div id="resume-detected" class="hidden mt-20">
+          <label class="small text-muted">Detected Skills</label>
+          <div class="skill-chip-row" id="resume-skill-chips"></div>
+        </div>
+
+        <div class="mt-20" style="display:flex;justify-content:flex-end;">
+          <button class="btn btn-primary" id="btn-generate-resume-q" disabled>Generate Interview Questions</button>
+        </div>
+      </div>
+
+      <div class="gen-results" id="resume-questions"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================ AI QUESTION GENERATOR ============================================================ -->
+<div class="view" id="view-generator">
+  <section class="page-hero">
+    <div class="container">
+      <div class="crumb">Practice / <b>AI Question Generator</b></div>
+      <h1>AI Question Generator</h1>
+      <p>Describe the role and the AI will generate a custom set of interview questions.</p>
+    </div>
+  </section>
+  <section class="section-tight">
+    <div class="container center-col">
+      <div class="glass pad-lg">
+        <div class="grid-2">
+          <div class="field">
+            <label>Job Role</label>
+            <input type="text" id="gen-role" placeholder="e.g. Data Analyst">
+          </div>
+          <div class="field">
+            <label>Company / Industry</label>
+            <input type="text" id="gen-company" placeholder="e.g. Fintech startup">
+          </div>
+          <div class="field">
+            <label>Experience</label>
+            <select id="gen-experience">
+              <option>Fresher</option><option>0-2 Years</option><option>3-5 Years</option><option>5+ Years</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Difficulty</label>
+            <select id="gen-difficulty">
+              <option>Beginner</option><option>Intermediate</option><option>Advanced</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Skills (comma separated)</label>
+          <input type="text" id="gen-skills" placeholder="e.g. Python, Machine Learning, SQL">
+        </div>
+        <div style="display:flex;justify-content:flex-end;">
+          <button class="btn btn-primary" id="btn-generate-questions">Generate Questions</button>
+        </div>
+      </div>
+      <div class="gen-results" id="generator-results"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================ RESOURCES ============================================================ -->
+<div class="view" id="view-resources">
+  <section class="page-hero">
+    <div class="container">
+      <div class="crumb">Learning <b>Resources</b></div>
+      <h1>Resources to sharpen your edge</h1>
+      <p>Bite-sized guides covering everything from resumes to salary negotiation.</p>
+    </div>
+  </section>
+  <section class="section-tight">
+    <div class="container grid-4" id="resources-grid"></div>
+  </section>
+</div>
+
+<!-- ============================================================ ABOUT ============================================================ -->
+<div class="view" id="view-about">
+  <section class="page-hero">
+    <div class="container">
+      <div class="crumb">About the <b>Project</b></div>
+      <h1>About This Project</h1>
+      <p>AI-Based Interview Preparation System — a college project demonstrating how AI can make interview practice accessible and personalized.</p>
+    </div>
+  </section>
+  <section class="section-tight">
+    <div class="container">
+      <div class="about-split">
+        <div class="glass">
+          <h3>The Problem</h3>
+          <p class="mb-0">Many students lack access to realistic interview practice and personalized feedback. Traditional preparation is generic, one-directional, and doesn't adapt to the individual.</p>
+        </div>
+        <div class="glass">
+          <h3>The Solution</h3>
+          <p class="mb-0">The AI-Based Interview Preparation System provides an interactive environment where candidates can practice interviews and receive automated, structured feedback — anytime, anywhere.</p>
+        </div>
+      </div>
+
+      <div class="section-head">
+        <span class="eyebrow">Key Technologies</span>
+        <h2>Built on an AI-driven foundation</h2>
+      </div>
+      <div class="grid-3" id="tech-grid"></div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<!-- ============================================================ FOOTER ============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo mb-0" style="margin-bottom:10px;"><img class="logo-img" src="assets/logo.png" alt="AI Interview Prep logo"><div>AI Interview Prep</div></div>
+        <p>AI-Based Interview Preparation System<br>"Practice. Improve. Succeed."</p>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><button data-view="home">Home</button></li>
+          <li><button data-view="practice">Practice</button></li>
+          <li><button data-view="mock-setup">Mock Interview</button></li>
+          <li><button data-view="questionbank">Question Bank</button></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><button data-view="resources">Resources</button></li>
+          <li><button data-view="about">About</button></li>
+          <li><button data-view="dashboard">Performance</button></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:contact@aiinterviewprep.demo">contact@aiinterviewprep.demo</a></li>
+          <li><span class="text-muted">Built for academic demonstration</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 AI-Based Interview Preparation System</span>
+      <span>Made for a college project demonstration</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================ CHAT ASSISTANT ============================================================ -->
+<button id="chat-fab" title="AI Interview Coach">💬</button>
+<div id="chat-panel" class="glass">
+  <div class="chat-head">
+    <div class="ai-avatar" style="width:36px;height:36px;font-size:1rem;">🤖</div>
+    <div><strong style="font-size:.9rem;">AI Interview Coach</strong><br><small>● Online</small></div>
+    <button class="chat-close" id="chat-close">✕</button>
+  </div>
+  <div class="chat-body" id="chat-body"></div>
+  <div class="chat-input-row">
+    <input type="text" id="chat-input" placeholder="Type a message…">
+    <button id="chat-send">➤</button>
+  </div>
+</div>
+
+<!-- ============================================================ AUTH MODAL ============================================================ -->
+<div class="modal-overlay" id="auth-modal">
+  <div class="modal-box glass">
+    <button class="modal-close" id="auth-close">✕</button>
+    <div class="auth-tabs">
+      <button class="active" data-tab="login">Login</button>
+      <button data-tab="signup">Sign Up</button>
+    </div>
+
+    <form class="auth-form active" id="form-login">
+      <div class="field"><label>Email</label><input type="email" required placeholder="you@example.com"></div>
+      <div class="field"><label>Password</label><input type="password" required placeholder="••••••••"></div>
+      <div class="form-row-between">
+        <label class="checkbox-row"><input type="checkbox" checked> Remember Me</label>
+        <a href="#" id="forgot-link">Forgot Password?</a>
+      </div>
+      <button class="btn btn-primary btn-block" type="submit">Login</button>
+    </form>
+
+    <form class="auth-form" id="form-signup">
+      <div class="field"><label>Full Name</label><input type="text" required placeholder="Jane Doe"></div>
+      <div class="field"><label>Email</label><input type="email" required placeholder="you@example.com"></div>
+      <div class="field"><label>Password</label><input type="password" required placeholder="••••••••"></div>
+      <div class="field"><label>Confirm Password</label><input type="password" required placeholder="••••••••"></div>
+      <button class="btn btn-primary btn-block" type="submit">Create Account</button>
+    </form>
+
+    <div class="auth-divider">or</div>
+    <button class="btn btn-outline google-btn" id="google-btn">🔎 Continue with Google</button>
+  </div>
+</div>
+
+<!-- ============================================================ RESOURCE DETAIL MODAL ============================================================ -->
+<div class="modal-overlay" id="resource-modal">
+  <div class="modal-box glass" style="max-width:520px;">
+    <button class="modal-close" id="resource-close">✕</button>
+    <div class="resource-icon" id="resource-modal-icon">💡</div>
+    <h3 id="resource-modal-title">Interview Tips</h3>
+    <p id="resource-modal-body" class="mb-0">Content</p>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "ai-interview-prep",
+  "version": "1.0.0",
+  "description": "AI-Based Interview Preparation System",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "engines": {
+    "node": ">=20.12"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.3.0"
+  }
+}
